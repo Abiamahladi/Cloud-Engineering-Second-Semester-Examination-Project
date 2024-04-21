@@ -1,0 +1,18 @@
+---
+- name: Install Bash script
+  hosts: 192.168.56.23
+  become: yes
+  become_user: vagrant  # Specify the user account to use for privilege escalation
+  tasks:
+    - name: Print message before executing script
+      debug:
+        msg: "Executing bashscript.sh"
+
+    - name: Execute Bash script for installation
+      script: /home/vagrant/project-controller/bashscript.sh
+
+    - name: Print message after executing script
+      debug:
+        msg: "Bash script execution completed"
+
+
